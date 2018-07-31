@@ -67,6 +67,10 @@ $(document).ready(function() {
       showPage($(this).attr("data-page"));
     });
     
+    $("#homeLink").on("click", function(e) {
+        showPage("home");
+    });
+    
     showPage("home");
   
 });
