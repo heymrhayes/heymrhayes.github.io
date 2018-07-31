@@ -3,8 +3,7 @@
 var appPages = 
   [ 
     {navDisplayTitle: "Home", file: "home", iconName: "home",},
-    {navDisplayTitle: "UIC Fall 2018", file: "uic-classes", iconName: "info"},
-    {navDisplayTitle: "EdCamp", file: "edcamp", iconName: "info"}
+    {navDisplayTitle: "UIC Courses", file: "uic-classes", iconName: "info"}
   ];
 
 var courses = {
