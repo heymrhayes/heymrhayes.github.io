@@ -1,28 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Hey Mr. Hayes</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/a79a553bef525946839ce57477ec3563_1.js" async></script>
-<script type="text/javascript">
-window.addEventListener('load', function() {
-    oSpP.push("Favorites","pizza");
-    oSpP.push("Email","dhayes1@uic.edu");
-    oSpP.push("Fname","Dave");
-  
-});
-</script>
+    <title>Hey Mr. Hayes</title>
+    
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- makes the page display well on small screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- stylesheet for the Material Components for the Web (MCW) -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+    <!-- Roboto font from Google -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    
+    <!-- Matrial icons font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- custom styles -->
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        :root {
+            --mdc-theme-primary: blue;
+        }
+
+        .mdc-top-app-bar {
+            background-color: var(--mdc-theme-primary);
+        }
+        
+        /*.mdc-typography--headline5, .mdc-typography--body1 {padding: 0 16px 0 16px;}*/
+
+        iframe {
+            width: 95%;
+            min-height: 400px;
+            height: 75%;
+            overflow: auto;
+        }
+
+        header {
+            top: 0px;
+        }
+
+        main {
+            margin-left: 24px;
+            margin-right: 1em;
+        }
+
+        .mdc-list-item__graphic {
+            color: green;
+            font-weight: bold;
+        }
+        
+        .qspage-status-indicator {
+            vertical-align: text-bottom;
+        }
+        
+        .template {display:none;}
+        
+        .mdc-list-item {padding-top: 16px;}
+        
+        h5 {-webkit-margin-after: 1em;}
+    </style>
+
+
 </head>
-<body>
 
-<div class="container">
-  <h1>My First Bootstrap Page</h1>
-  <p>This is some text.</p> 
-</div>
+<body class="mdc-typography">
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                <span class="mdc-top-app-bar__title">Hey Mr. Hayes</span>
+            </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+      <a id="homeLink" href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="home" alt="home">home</a>
+      <!-- 
+        
+        you can include other icons in the top bar, but I didn't want these
+        for this app
+        
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Print this page" alt="Print this page">print</a>
+      <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a> -->
+      </section>            
+            
+        </div>
+    </header>
 
+    <!-- side drawer;  holds navigation links -->
+    <aside class="mdc-drawer mdc-drawer--temporary mdc-typography"  data-mdc-auto-init="MDCTemporaryDrawer">
+        <nav class="mdc-drawer__drawer">
+            <header class="mdc-drawer__header">
+                <div class="mdc-drawer__header-content">
+                    Header content goes here
+                </div>
+            </header>
+
+            <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+                <a class="mdc-list-item template" href="#" data-page="home">
+                    <span class="drawer-list-item-text"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i> Home</span>
+                 </a>
+                <!-- 
+                  we're adding more menu items programmatically in index.js based on the appPages variable
+                  
+                  <a class="mdc-list-item" href="#" >
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star
+                </a>
+                <a class="mdc-list-item" href="#" data-page="about">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i> About
+                </a> -->
+            </nav>
+        </nav>
+    </aside>
+
+
+  <!-- main content area; page content is loaded here -->
+  <main class="mdc-toolbar-fixed-adjust">
+    <img src="./images/loading_icon.gif" alt="loading icon">
+  </main>  
+  
+  <!-- dialog box (pop-up that takes over the screen; is used in multiple contexts;   -->
+  <aside 
+    class="mdc-dialog"
+    role="alertdialog"
+    aria-labelledby="my-mdc-dialog-label"
+    aria-describedby="my-mdc-dialog-description"
+    data-mdc-auto-init="MDCDialog">
+    <div class="mdc-dialog__surface">
+      <header class="mdc-dialog__header">
+        <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">
+          Title
+        </h2>
+      </header>
+      <section id="my-mdc-dialog-description" class="mdc-dialog__body">
+      </section>
+      <footer class="mdc-dialog__footer">
+        <button type="button" class="mdc-button mdc-button--raised mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Decline</button>
+        <button type="button" class="mdc-button mdc-button--raised mdc-dialog__footer__button mdc-dialog__footer__button--accept">Accept</button>
+      </footer>
+    </div>
+    <div class="mdc-dialog__backdrop"></div>
+  </aside> 
+
+  <!-- snackbar (pop-up message at bottom of screen) -->
+  <div class="mdc-snackbar"
+        aria-live="assertive"
+        aria-atomic="true"
+        aria-hidden="true"
+        data-mdc-auto-init="MDCSnackbar"
+        >
+    <div class="mdc-snackbar__text">Hello</div>
+    <div class="mdc-snackbar__action-wrapper">
+      <button type="button" class="mdc-snackbar__action-button"></button>
+    </div>
+  </div>
+
+  <!-- jQuery library, from jQuery site -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <!-- Material Components for the Web (MCW) library -->
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  
+  
+  <!-- include our JavaScript file  -->
+  <script src="./index.js"></script>
+
+  <script type="text/javascript">
+      /* initialize the components, 
+          based on the data-mdc-auto-init 
+          attribute value on elements
+      */
+      window.mdc.autoInit();
+
+      // load the home page/screen
+      showPage("home");
+  </script>
+
+  <script>
+    // if browser can handle it, register service worker
+    if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js');
+    } else {
+        console.log("no support for service workers");
+    }
+  </script>
 </body>
 </html>
