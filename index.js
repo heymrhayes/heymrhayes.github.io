@@ -62,7 +62,7 @@ $(document).ready(function() {
     });
 
     // load related page when drawer nav item clicked
-    $(".mdc-drawer--temporary .mdc-list-item").on("click", function(e) {
+    $(".mdc-drawer--dismissible .mdc-list-item").on("click", function(e) {
       console.log($(this).attr("data-page"));
       showPage($(this).attr("data-page"));
     });
