@@ -30,7 +30,7 @@ var drawer, snackbar, dialog;
 $(document).ready(function() {
 
     // create the references to the MCW components
-    drawer = $(".mdc-drawer--temporary")[0].MDCTemporaryDrawer;
+    drawer = $(".mdc-drawer--dismissible")[0].MDCDrawer;
     snackbar = $(".mdc-snackbar")[0].MDCSnackbar;
     dialog = $(".mdc-dialog")[0].MDCDialog;
     
